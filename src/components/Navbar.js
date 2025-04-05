@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary">
+    <nav
+      className={`navbar bg-${props.mode} border-bottom border-body`}
+      data-bs-theme={`${props.mode}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -43,15 +46,30 @@ export default function Navbar(props) {
               Search
             </button>
           </form>
+          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+            <input
+              className="form-check-input"
+              type="checkbox"
+              onClick={props.toggleMode}
+              role="switch"
+              id="switchCheckDefault"
+            />
+            <label className="form-check-label" htmlFor="switchCheckDefault">
+              Enable {props.mode==='primary'?'dark':'primary'} mode
+            </label>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
 
-Navbar.propTypes = { title: PropTypes.string.isRequired, aboutText: PropTypes.string };
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string,
+};
 
 Navbar.defaultProps = {
-    title: "set title here",
-    aboutText: "Set about text here"
-} 
+  title: "set title here",
+  aboutText: "Set about text here",
+};

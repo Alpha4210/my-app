@@ -50,6 +50,7 @@ export default function TextForm(props) {
           rows="8"
           value={text}
           onChange={handleOnChange}
+          style={{backgroundColor : props.mode==='dark'?'grey':'white'}}
         ></textarea>
       </div>
       <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to upper-case</button>
@@ -63,7 +64,7 @@ export default function TextForm(props) {
       <p>{text.split(" ").length} words and {text.length} characters</p>
       <p>{0.008 * text.split(" ").length} minutes required to read</p>
       <h2>Preview</h2>
-      <p>{text}</p>
+      <p>{text.length>0?text:"Enter some text to preview it here"}</p>
     </div>
     </>
   );
