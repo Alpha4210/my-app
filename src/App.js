@@ -25,6 +25,11 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor = "grey"
       showAlert("Dark mode has been enabled", "success")
+      // for dynamically changing the title of the page
+      // document.title = 'TextUtils - dark mode'
+      // setInterval(() => {
+      //   document.title = 'TextUtils is amazing' //similar to the website showing your laptop has virus download to remove it XD
+      // }, 2000);
     }
     else{
       setMode('primary')
