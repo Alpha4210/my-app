@@ -56,16 +56,16 @@ export default function TextForm(props) {
           style={{backgroundColor : props.mode==='dark'?'grey':'white'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to upper-case</button>
-      <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to lower-case</button>
-      <button className="btn btn-primary mx-2" onClick={handleSentenceClick}>Convert to sentence-case</button>
-      <button className="btn btn-primary mx-2" onClick={handleTitleClick}>Convert to title-case</button>
-      <button className="btn btn-primary mx-2" onClick={handleResetClick}>Reset</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to upper-case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>Convert to lower-case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleSentenceClick}>Convert to sentence-case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleTitleClick}>Convert to title-case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleResetClick}>Reset</button>
     </div>
     <div className="container my-3">
       <h1>Text summary</h1>
-      <p>{(text.split(" ").length)-1} words and {text.length} characters</p>
-      <p>{0.008 * (text.split(" ").length-1)} minutes required to read</p>
+      <p>{(text.split(/\s+/).filter((element)=>{return element.length!==0}).length)} words and {text.length} characters</p>
+      <p>{0.008 * (text.split(" ").filter((element)=>{return element.length!==0}).length)} minutes required to read</p>
       <h2>Preview</h2>
       <p>{text.length>0?text:"Enter some text to preview it here"}</p>
     </div>

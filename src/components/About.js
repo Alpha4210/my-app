@@ -1,32 +1,37 @@
 import React, {useState} from "react";
 
 export default function About() {
-    const [myStyle, setmyStyle] = useState( 
-    {
-        color : 'white',
-        backgroundColor : 'black'
-    }
-)
-const [btnText, setBtnText] = useState("Enable LIght mode")
+//     const [myStyle, setmyStyle] = useState( 
+//     {
+//         color : 'white',
+//         backgroundColor : 'black'
+//     }
+// )
+// const [btnText, setBtnText] = useState("Enable LIght mode")
 
-  const toggleStyle = ()=>{
-    if (myStyle.color == "white")
-    {
-        setmyStyle({
-            color:'black',
-            backgroundColor:'white'
-        })
-    setBtnText("Enable Dark mode")
-    }
+//   const toggleStyle = ()=>{
+//     if (myStyle.color == "white")
+//     {
+//         setmyStyle({
+//             color:'black',
+//             backgroundColor:'white'
+//         })
+//     setBtnText("Enable Dark mode")
+//     }
     
-    else {
-        setmyStyle({
-            color:'white',
-            backgroundColor:'black'
-        })
-        setBtnText("Enable Light mode")
-    }
-  }
+//     else {
+//         setmyStyle({
+//             color:'white',
+//             backgroundColor:'black'
+//         })
+//         setBtnText("Enable Light mode")
+//     }
+//   }
+//Used for changing the mode of the content
+// let myStyle = {
+//   color : props.mode === 'dark'?'white':'#042743',
+//   backgroundColor : props.mode === 'white'?'dark':'white'
+// }
   return (
     <div classNameName="container" style={myStyle}>
         <h1 classNameName="my-2">About Us</h1>
@@ -125,9 +130,9 @@ const [btnText, setBtnText] = useState("Enable LIght mode")
           </div>
         </div>
       </div>
-      <div classNameName="container my-3">
+      {/* <div classNameName="container my-3">
       <button onClick={toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
-      </div>
+      </div> */}
     </div>
   );
 }
